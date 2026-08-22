@@ -1,0 +1,210 @@
+[
+  {
+    "model": "bookings.holiday",
+    "pk": 1,
+    "fields": {
+      "date": "2026-01-01",
+      "name": "New Year's Day"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 2,
+    "fields": {
+      "date": "2026-01-14",
+      "name": "Makar Sankranti"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 3,
+    "fields": {
+      "date": "2026-01-26",
+      "name": "Republic Day"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 4,
+    "fields": {
+      "date": "2026-02-15",
+      "name": "Maha Shivaratri"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 5,
+    "fields": {
+      "date": "2026-02-19",
+      "name": "Chhatrapati Shivaji Maharaj Jayanti"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 6,
+    "fields": {
+      "date": "2026-03-03",
+      "name": "Holi"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 7,
+    "fields": {
+      "date": "2026-03-19",
+      "name": "Gudhi Padwa"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 8,
+    "fields": {
+      "date": "2026-03-26",
+      "name": "Ram Navami"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 9,
+    "fields": {
+      "date": "2026-04-03",
+      "name": "Good Friday"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 10,
+    "fields": {
+      "date": "2026-04-14",
+      "name": "Dr. Babasaheb Ambedkar Jayanti"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 11,
+    "fields": {
+      "date": "2026-05-01",
+      "name": "Maharashtra Day"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 12,
+    "fields": {
+      "date": "2026-05-01",
+      "name": "Buddha Purnima"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 13,
+    "fields": {
+      "date": "2026-07-29",
+      "name": "Ashadhi Ekadashi"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 14,
+    "fields": {
+      "date": "2026-08-09",
+      "name": "Nag Panchami"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 15,
+    "fields": {
+      "date": "2026-08-15",
+      "name": "Independence Day"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 16,
+    "fields": {
+      "date": "2026-08-19",
+      "name": "Raksha Bandhan"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 17,
+    "fields": {
+      "date": "2026-09-07",
+      "name": "Hartalika"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 18,
+    "fields": {
+      "date": "2026-09-14",
+      "name": "Ganesh Chaturthi"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 19,
+    "fields": {
+      "date": "2026-09-25",
+      "name": "Anant Chaturdashi"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 20,
+    "fields": {
+      "date": "2026-10-02",
+      "name": "Gandhi Jayanti"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 21,
+    "fields": {
+      "date": "2026-10-20",
+      "name": "Dussehra"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 22,
+    "fields": {
+      "date": "2026-11-08",
+      "name": "Diwali Laxmi Pujan"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 23,
+    "fields": {
+      "date": "2026-11-09",
+      "name": "Narak Chaturdashi"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 24,
+    "fields": {
+      "date": "2026-11-10",
+      "name": "Diwali Padwa"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 25,
+    "fields": {
+      "date": "2026-11-11",
+      "name": "Bhau Beej"
+    }
+  },
+  {
+    "model": "bookings.holiday",
+    "pk": 26,
+    "fields": {
+      "date": "2026-12-25",
+      "name": "Christmas"
+    }
+  }
+]
