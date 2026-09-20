@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { API_BASE_URL } from "../api/axios";
 import {
   LayoutDashboard,
   Calendar,
@@ -52,7 +53,7 @@ export default function Sidebar() {
             <div className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-sm overflow-hidden border border-purple-400/40">
               {user.profile_picture_url ? (
                 <img
-                  src={`http://127.0.0.1:8000${user.profile_picture_url}`}
+                  src={user.profile_picture_url.startsWith('http') ? user.profile_picture_url : `${API_BASE_URL}${user.profile_picture_url}`}
                   alt={user.full_name}
                   className="w-full h-full object-cover"
                 />

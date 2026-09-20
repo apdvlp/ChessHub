@@ -24,8 +24,9 @@ async def register(
     profile_picture: Optional[UploadFile] = File(None),
     db: Session = Depends(get_db)
 ):
+    email_clean = email.strip().lower()
     # Check existing user
-    existing_user = db.query(models.User).filter(models.User.email == email).first()
+    existing_user = db.query(models.User).filter(models.User.email == email_clean).first()
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -44,8 +45,8 @@ async def register(
 
     hashed_pw = get_password_hash(password)
     user = models.User(
-        full_name=full_name,
-        email=email,
+        full_name=full_name.strip(),
+        email=email_clean,
         hashed_password=hashed_pw,
         age=age,
         gender=gender,
@@ -60,7 +61,11 @@ async def register(
 
 @router.post("/login", response_model=schemas.Token)
 def login(login_data: schemas.UserLogin, db: Session = Depends(get_db)):
-    user = db.query(models.User).filter(models.User.email == login_data.email).first()
+    email_clean = login_data.email.strip().lower()
+    user = db.query(models.User).filter(models.User.email == email_clean).first()
+    if not user:
+        user = db.query(models.User).filter(models.User.email == login_data.email).first()
+
     if not user or not verify_password(login_data.password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

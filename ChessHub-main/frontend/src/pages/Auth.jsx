@@ -50,7 +50,7 @@ export default function Auth() {
 
     try {
       const res = await api.post("/auth/login", {
-        email: loginEmail,
+        email: loginEmail.trim(),
         password: loginPassword,
       });
 
@@ -71,16 +71,14 @@ export default function Auth() {
 
     try {
       const formData = new FormData();
-      formData.append("full_name", regFullName);
-      formData.append("email", regEmail);
+      formData.append("full_name", regFullName.trim());
+      formData.append("email", regEmail.trim());
       formData.append("password", regPassword);
       if (regAge) formData.append("age", regAge);
       if (regGender) formData.append("gender", regGender);
       if (regFile) formData.append("profile_picture", regFile);
 
-      const res = await api.post("/auth/register", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const res = await api.post("/auth/register", formData);
 
       localStorage.setItem("token", res.data.access_token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
