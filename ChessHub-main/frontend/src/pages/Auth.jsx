@@ -58,7 +58,14 @@ export default function Auth() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.detail || "Invalid Email or Password");
+      const data = err.response?.data;
+      let msg = "Invalid Email or Password";
+      if (data) {
+        if (typeof data === "string") msg = data;
+        else if (data.detail) msg = data.detail;
+        else if (data.message) msg = data.message;
+      }
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -84,7 +91,15 @@ export default function Auth() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.detail || "Registration failed. Try another email.");
+      const data = err.response?.data;
+      let msg = "Registration failed. Try another email.";
+      if (data) {
+        if (typeof data === "string") msg = data;
+        else if (data.detail) msg = data.detail;
+        else if (data.email) msg = Array.isArray(data.email) ? data.email[0] : data.email;
+        else if (data.message) msg = data.message;
+      }
+      setError(msg);
     } finally {
       setLoading(false);
     }

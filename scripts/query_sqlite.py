@@ -1,14 +1,17 @@
 import sqlite3
 import os
 
-# Find the db.sqlite3 by walking up from this script's directory
 here = os.path.dirname(os.path.abspath(__file__))
 db_path = None
 cur = here
 while True:
-    candidate = os.path.join(cur, 'ChessHub-main', 'backend', 'db.sqlite3')
+    candidate = os.path.join(cur, 'ChessHub-main', 'backend', 'chesshub.db')
     if os.path.exists(candidate):
         db_path = candidate
+        break
+    candidate2 = os.path.join(cur, 'backend', 'chesshub.db')
+    if os.path.exists(candidate2):
+        db_path = candidate2
         break
     parent = os.path.dirname(cur)
     if parent == cur:
@@ -23,11 +26,10 @@ conn = sqlite3.connect(db_path)
 c = conn.cursor()
 
 query = '''
-SELECT b.id, u.username, p.name, b.booking_date, b.start_time, b.end_time, b.status, b.payment_status
-FROM bookings_booking b
-LEFT JOIN auth_user u ON b.user_id = u.id
-LEFT JOIN bookings_plan p ON b.plan_id = p.id
-ORDER BY b.booking_date, b.start_time
+SELECT b.id, u.full_name, b.plan_type, b.date, b.time_slot, b.status, b.price
+FROM bookings b
+LEFT JOIN users u ON b.user_id = u.id
+ORDER BY b.date, b.time_slot
 '''
 
 for row in c.execute(query):

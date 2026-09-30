@@ -1,0 +1,34 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+backend_server.log
+backend_server_err.log
+frontend_server.log
+frontend_server_err.log
+
+# Frontend & Node
+node_modules/
+dist/
+**/node_modules/
+**/dist/
+eslint_report.json
+**/eslint_report.json
+
+# Environment variables
+.env
+*.env
+backend/.env
+frontend/.env
+**/backend/.env
+**/frontend/.env
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

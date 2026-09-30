@@ -1,20 +1,23 @@
 import os
 import sys
 
-# Ensure we're running from repo root
-sys.path.append(os.getcwd())
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+backend_path = os.path.join(repo_root, 'ChessHub-main', 'backend')
+if not os.path.exists(backend_path):
+    backend_path = os.path.join(repo_root, 'backend')
+sys.path.insert(0, backend_path)
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chesshub.settings')
+from database import SessionLocal
+import models
 
-import django
-django.setup()
-
-from bookings.models import Booking
-
-bookings = Booking.objects.select_related('user', 'plan').all()
-
-if not bookings:
-    print('NO_BOOKINGS')
-else:
-    for b in bookings:
-        print(f"ID:{b.id} USER:{b.user.username} PLAN:{b.plan.name} DATE:{b.booking_date} START:{b.start_time} END:{b.end_time} STATUS:{b.status} PAYMENT:{b.payment_status}")
+db = SessionLocal()
+try:
+    bookings = db.query(models.Booking).all()
+    if not bookings:
+        print('NO_BOOKINGS')
+    else:
+        for b in bookings:
+            user_name = b.user.full_name if b.user else "Unknown"
+            print(f"ID:{b.id} USER:{user_name} PLAN:{b.plan_type} DATE:{b.date} SLOT:{b.time_slot} STATUS:{b.status} PRICE:{b.price}")
+finally:
+    db.close()

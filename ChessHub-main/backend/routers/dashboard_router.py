@@ -8,7 +8,9 @@ from auth import get_current_user
 
 router = APIRouter(prefix="/api/dashboard", tags=["Dashboard"])
 
+
 @router.get("/stats", response_model=schemas.DashboardStats)
+@router.get("/stats/", response_model=schemas.DashboardStats)
 def get_dashboard_stats(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user)
@@ -31,4 +33,3 @@ def get_dashboard_stats(
         "cancelled": cancelled,
         "user": current_user
     }
-
